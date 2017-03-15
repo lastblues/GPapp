@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0000"
+    android:orientation="vertical"
+    tools:context="com.example.andyshin.gpapp.RegisterActivity">
+
+    <ImageButton
+        android:id="@+id/user_profile_photo"
+        android:layout_width="200dp"
+        android:layout_height="113dp"
+        android:background="#FF0000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:elevation="4dp"
+        android:src="@drawable/profile_icon_small" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:inputType="textPersonName"
+            android:textColor="#C0C0C0"
+            android:background="#FFFFFF"
+            android:text="User ID"
+            android:ems="10"
+            android:id="@+id/regUserIDEditText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#C0C0C0"
+            android:background="#FFFFFF"
+            android:inputType="textPersonName"
+            android:text="Password"
+            android:ems="10"
+            android:id="@+id/regPasswordEditText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginTop="16dp"
+            android:textColor="#C0C0C0"
+            android:background="#FFFFFF"
+            android:text="Confirm Password"
+            android:ems="10"
+            android:id="@+id/regConfirmPassEditText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginTop="16dp"
+            android:textColor="#C0C0C0"
+            android:background="#FFFFFF"
+            android:text="E-mail"
+            android:ems="10"
+            android:id="@+id/regEmailEditText" />
+
+        <Button
+            android:text="Confirm"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="#696969"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:id="@+id/confirmButton" />
+
+        <Button
+            android:text="Reset"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#696969"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:id="@+id/resetButton" />
+
+    </LinearLayout>
+
+</RelativeLayout>
