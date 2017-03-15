@@ -60,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity2.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity2.this, "Tab clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }//end of addDrawerItems()

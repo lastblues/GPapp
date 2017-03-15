@@ -16,12 +16,13 @@ public class DataItem implements Parcelable {
     private String description;
     private String category;
     private String image;
+    private String link;
 
     //implement later
     private int sortPosition;
     private String lifecycle;
 
-    public DataItem(String itemId, String itemName, String category, String description, int sortPosition, String lfecycle, String image){
+    public DataItem(String itemId, String itemName, String category, String description, int sortPosition, String lfecycle, String image, String link){
 
         if(itemId == null){
             itemId = UUID.randomUUID().toString();
@@ -34,6 +35,7 @@ public class DataItem implements Parcelable {
         this.sortPosition = sortPosition;
         this.lifecycle = lifecycle;
         this.image = image;
+        this.link = link;
     }
 
     public String getItemId() {
@@ -92,6 +94,14 @@ public class DataItem implements Parcelable {
         this.image = image;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     @Override
     public String toString() {
         return "DataItem{" +
@@ -102,6 +112,7 @@ public class DataItem implements Parcelable {
                 ", sortPosition=" + sortPosition +
                 ", lifecycle=" + lifecycle +
                 ", image='" + image + '\'' +
+                ", link='" + link + '\n' +
                 '}';
     }
 
@@ -119,6 +130,7 @@ public class DataItem implements Parcelable {
         dest.writeInt(this.sortPosition);
         dest.writeString(this.lifecycle);
         dest.writeString(this.image);
+        dest.writeString(this.link);
     }
 
     protected DataItem(Parcel in) {
@@ -129,6 +141,7 @@ public class DataItem implements Parcelable {
         this.sortPosition = in.readInt();
         this.lifecycle = in.readString();
         this.image = in.readString();
+        this.link = in.readString();
     }
 
     public static final Parcelable.Creator<DataItem> CREATOR = new Parcelable.Creator<DataItem>() {

@@ -3,6 +3,7 @@ package com.example.andyshin.gpapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,10 +58,14 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHo
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "You selected " + item.getItemName(),
+                Toast.makeText(mContext, "You selected " + item.getLink(),
                         Toast.LENGTH_SHORT).show();
                 String itemId = item.getItemId();
+                String linkId = item.getLink();
+
                 //Intent intent = new Intent(mContext, DetailActivity.class);
+                Intent loadYoutube = new Intent(Intent.ACTION_VIEW, Uri.parse(linkId));
+                mContext.startActivity(loadYoutube);
                 //intent.putExtra(ITEM_KEY, item);
                 //mContext.startActivity(intent);
             }
