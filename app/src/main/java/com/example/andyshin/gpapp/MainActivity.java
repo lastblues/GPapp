@@ -61,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     Toast.makeText(this, "Welcome Back " + user, Toast.LENGTH_SHORT);
                 }
+
+                Intent mainIntent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(mainIntent);
+
                 break;
 
             //register button case, go to register activity
