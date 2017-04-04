@@ -1,5 +1,6 @@
 package com.example.andyshin.gpapp;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -61,6 +62,13 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity2.this, "Tab clicked", Toast.LENGTH_SHORT).show();
+
+                //PROFILE
+                if(position == 0){
+                    Toast.makeText(MainActivity2.this, "2", Toast.LENGTH_SHORT).show();
+                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
+                    startActivity(profileIntent);
+                }
             }
         });
     }//end of addDrawerItems()

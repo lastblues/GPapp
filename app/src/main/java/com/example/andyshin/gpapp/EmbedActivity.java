@@ -28,7 +28,7 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_videoplayback);
 
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
@@ -36,11 +36,11 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
     @Override
     public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
-        player.cueVideo("fhWaJi1Hsfo");
-
+        //player.cueVideo("fhWaJi1Hsfo");
+        //player.cuePlaylist("PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?");   //play https://www.youtube.com/playlist?list=PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?
         if (!wasRestored) {
-            player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
-
+            //player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
+            player.cuePlaylist("PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01");   //play https://www.youtube.com/playlist?list=PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?
         }
     }
 
