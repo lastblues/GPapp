@@ -3,6 +3,7 @@ package com.example.andyshin.gpapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
 
         //EditTexts and their on click listeners
@@ -38,12 +41,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         rButton = (Button) findViewById(R.id.registerButton);
         rButton.setOnClickListener(this);
+
+        getSupportActionBar().setElevation(0);
+
+        //actionBar.hide();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
 
+            //login button, compares text fields to shared preferences to proceed to next activity
             case R.id.loginButton:
                 SharedPreferences sharedPrefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
@@ -55,16 +63,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Toast.makeText(this, "" + user, Toast.LENGTH_SHORT).show();
                 //Toast.makeText(this, "" + pWord, Toast.LENGTH_SHORT).show();
 
-                //this would be where code to go to main activity would be
-                if (id == user) {
-                    Toast.makeText(this, "Incorrect User ID or Password", Toast.LENGTH_SHORT);
+                if (id.equals(user) && pass.equals(pWord)) {
+                    Toast.makeText(this, "Welcome back " + user, Toast.LENGTH_SHORT).show();
+                    Intent mainIntent = new Intent(MainActivity.this, MainActivity2.class);
+                    startActivity(mainIntent);
+
                 } else {
-                    Toast.makeText(this, "Welcome Back " + user, Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "Incorrect User ID or Password", Toast.LENGTH_SHORT).show();
                 }
 
-                Intent mainIntent = new Intent(MainActivity.this, MainActivity2.class);
-                startActivity(mainIntent);
-
+                //this would be where code to go to main activity would be
+                //if (id == user) {
+                   // Toast.makeText(this, "Incorrect User ID or Password", Toast.LENGTH_SHORT);
+                //} else {
+                   // Toast.makeText(this, "Welcome Back " + user, Toast.LENGTH_SHORT);
+                //}
                 break;
 
             //register button case, go to register activity
@@ -77,11 +90,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.idEditText:
                 if (userID.getText().toString().matches("User ID")) {
                     userID.setText("");
+                    userID.getText().clear();
+                    //userID.setSelectAllOnFocus(true);
                 }
                 break;
             case R.id.passEditText:
                 if (password.getText().toString().matches("Password")) {
                     password.setText("");
+                    password.getText().clear();
+                    //password.setSelectAllOnFocus(true);
                 }
                 break;
         }

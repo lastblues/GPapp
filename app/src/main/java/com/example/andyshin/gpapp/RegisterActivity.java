@@ -45,6 +45,8 @@ public class RegisterActivity extends MainActivity implements View.OnClickListen
         reset = (Button) findViewById(R.id.resetButton);
         reset.setOnClickListener(this);
 
+        getSupportActionBar().setElevation(0);
+
     }
 
     //On Click method
@@ -56,21 +58,25 @@ public class RegisterActivity extends MainActivity implements View.OnClickListen
             case R.id.regUserIDEditText:
                 if (register.getText().toString().matches("User ID")) {
                     register.setText("");
+                    register.getText().clear();
                 }
                 break;
             case R.id.regPasswordEditText:
                 if (regPassword.getText().toString().matches("Password")) {
                     regPassword.setText("");
+                    regPassword.getText().clear();
                 }
                 break;
             case R.id.regConfirmPassEditText:
                 if (confirmPass.getText().toString().matches("Confirm Password")) {
                     confirmPass.setText("");
+                    confirmPass.getText().clear();
                 }
                 break;
             case R.id.regEmailEditText:
                 if (email.getText().toString().matches("E-mail")) {
                     email.setText("");
+                    email.getText().clear();
                 }
                 break;
 

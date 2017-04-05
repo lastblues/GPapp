@@ -3,6 +3,7 @@ package com.example.andyshin.gpapp;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class MainActivity2 extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
 
+    //android.app.ActionBar actionBar = getActionBar();
+
     List<DataItem> dataItemList = SampleDataProvider.dataItemList;
 
     //Drawer code referenced from:
@@ -45,6 +48,7 @@ public class MainActivity2 extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
 
+        //actionBar.show();
         addDrawerItems();
         setupDrawer();
 
