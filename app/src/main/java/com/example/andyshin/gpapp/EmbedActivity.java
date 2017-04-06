@@ -24,6 +24,7 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
+    //private YouTube
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

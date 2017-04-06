@@ -39,9 +39,10 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         //RecyclerView code
+        YouTubeAdapter youTubeAdapter = new YouTubeAdapter();
         DataItemAdapter adapter = new DataItemAdapter(this, dataItemList);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(youTubeAdapter);
 
         //drawer menu code
         mDrawerList = (ListView) findViewById(R.id.navList);
