@@ -39,10 +39,10 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         //RecyclerView code
-        YouTubeAdapter youTubeAdapter = new YouTubeAdapter();
+        //YouTubeAdapter youTubeAdapter = new YouTubeAdapter();
         DataItemAdapter adapter = new DataItemAdapter(this, dataItemList);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
-        recyclerView.setAdapter(youTubeAdapter);
+        recyclerView.setAdapter(adapter);
 
         //drawer menu code
         mDrawerList = (ListView) findViewById(R.id.navList);
@@ -58,6 +58,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     }//end of onCreate()
 
+    //SIDE DRAWER CODE
     private void addDrawerItems(){
         String[] itemArray = {"Profile", "YouTube", "Twitch", "Podcast", "Forum", "Settings", "Exit"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, itemArray);

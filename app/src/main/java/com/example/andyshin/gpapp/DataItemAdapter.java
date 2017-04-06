@@ -64,10 +64,11 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHo
                 String linkId = item.getLink();
 
                 Intent intent = new Intent(mContext, EmbedActivity.class);
+                Intent playlistIntent = new Intent(mContext, YouTubeActivity.class);
                 Intent loadYoutube = new Intent(Intent.ACTION_VIEW, Uri.parse(linkId));
                 //mContext.startActivity(loadYoutube);
                 //intent.putExtra(ITEM_KEY, item);
-                mContext.startActivity(intent);
+                mContext.startActivity(playlistIntent);
             }
         });
 
