@@ -42,12 +42,55 @@ public class YouTubeActivity extends AppCompatActivity{
             "PLUBonmwJMSaRvAZlIqlMJGc3FZU3KmNhm"
     };
 
+    //ARRAY FOR JUST THE RETROSPECTIVES
+    private static final String[] RETRO_PLAYLISTS = {
+            //SMT retrospective
+            "PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01",
+            //Fire emblem retrospective
+            "PLUBonmwJMSaTzqs1rQrmTuPNE8eQWDS8w",
+            //Suikoden retrospective
+            "PLUBonmwJMSaTWe6lhhsyvB_ud_nfJHwmN",
+            //Star ocean retrospective
+            "PLUBonmwJMSaQhniJJK10dwLeECbm-sMiV",
+            //Tales retrospective
+            "PLUBonmwJMSaQ4fKHVCgo9xVNtp4A56y-T",
+
+    };
+
+    //ARRAY FOR JUST THE RETROSPECTIVES
+    private static final String[] PLAY_PLAYLISTS = {
+            //SACRED STONES PLAYLIST
+            //https://www.youtube.com/playlist?list=PLUBonmwJMSaTEOTrwn13EbZvRUzUF4VLf
+            "PLUBonmwJMSaTEOTrwn13EbZvRUzUF4VLf",
+            //FIRE EMBLEM 7 PLAYLIST
+            //https://www.youtube.com/playlist?list=PLUBonmwJMSaRvAZlIqlMJGc3FZU3KmNhm
+            "PLUBonmwJMSaRvAZlIqlMJGc3FZU3KmNhm"
+    };
+
+    //ARRAY FOR JUST THE REVIEWS
+    private static final String[] REVIEW_PLAYLISTS = {
+            //RPG SITE REVIEW
+            //https://www.youtube.com/playlist?list=PLUBonmwJMSaTjbHB49QdAnfDO2nOKPXbx
+            "PLUBonmwJMSaTjbHB49QdAnfDO2nOKPXbx",
+    };
+
+    //AN ARRAY TO HOLD ALL THE PLAYLISTS
+    private static final String[] PLAYLISTS [] = {
+            YOUTUBE_PLAYLISTS,
+            RETRO_PLAYLISTS,
+            PLAY_PLAYLISTS,
+            REVIEW_PLAYLISTS
+    };
+
+    //https://www.youtube.com/playlist?list=PLUBonmwJMSaTjbHB49QdAnfDO2nOKPXbx
+
     //DRAWER CODE
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
+    private int plPos;
     //END OF DRAWER CODE
 
     private YouTube mYoutubeDataApi;
@@ -58,6 +101,26 @@ public class YouTubeActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_youtube);
+
+        //INTENT CODE
+        Intent intent = getIntent();
+        String aPos = intent.getStringExtra ("pos");
+
+        switch(aPos){
+            case "1":
+                plPos = 1;
+                break;
+            case "2":
+                plPos = 2;
+                break;
+            case "3":
+                plPos = 3;
+                break;
+            default:
+                break;
+        }
+
+        Toast.makeText(YouTubeActivity.this, ""+plPos, Toast.LENGTH_SHORT).show();
 
         //DRAWER CODE
         mDrawerList = (ListView) findViewById(R.id.navList);
@@ -92,7 +155,7 @@ public class YouTubeActivity extends AppCompatActivity{
                     .build();
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, YouTubeRecyclerViewFragment.newInstance(mYoutubeDataApi, YOUTUBE_PLAYLISTS))
+                    .add(R.id.container, YouTubeRecyclerViewFragment.newInstance(mYoutubeDataApi, PLAYLISTS [plPos]))
                     .commit();
         }
     }
@@ -113,7 +176,7 @@ public class YouTubeActivity extends AppCompatActivity{
         int id = item.getItemId();
         if (id == R.id.action_recyclerview) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, YouTubeRecyclerViewFragment.newInstance(mYoutubeDataApi, YOUTUBE_PLAYLISTS))
+                    .replace(R.id.container, YouTubeRecyclerViewFragment.newInstance(mYoutubeDataApi, PLAYLISTS [plPos]))
                     .commit();
             return true;
         }

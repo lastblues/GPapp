@@ -44,7 +44,6 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
     private final YouTubeRecyclerViewFragment.LastItemReachedListener mListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final Context mContext;
         public final TextView mTitleText;
         public final TextView mDescriptionText;
         public final ImageView mThumbnailImage;
@@ -54,6 +53,8 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
         public final TextView mViewCountText;
         public final TextView mLikeCountText;
         public final TextView mDislikeCountText;
+
+        private Context mContext;
 
         public ViewHolder(View v) {
             super(v);
@@ -67,6 +68,8 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
             mViewCountText= (TextView) v.findViewById(R.id.video_view_count);
             mLikeCountText = (TextView) v.findViewById(R.id.video_like_count);
             mDislikeCountText = (TextView) v.findViewById(R.id.video_dislike_count);
+
+
         }
     }
 
@@ -110,7 +113,10 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
         holder.mThumbnailImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + video.getId())));
+                Intent embedYouTube = new Intent(holder.mContext, EmbedActivity.class);
+                //holder.mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + video.getId())));
+                holder.mContext.startActivity(embedYouTube);
+
             }
         });
 

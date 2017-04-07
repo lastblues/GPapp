@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
@@ -60,7 +61,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     //SIDE DRAWER CODE
     private void addDrawerItems(){
-        String[] itemArray = {"Profile", "Retrospective", "Let's Play", "Reviews", "Livestream", "Settings", "Exit"};
+        String[] itemArray = {"Profile", "Retrospective", "Let's Play", "Reviews", "Favorites", "Settings", "Exit"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, itemArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -68,6 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(MainActivity2.this, "Tab clicked", Toast.LENGTH_SHORT).show();
+
 
                 //PROFILE
                 if(position == 0){
@@ -78,30 +80,36 @@ public class MainActivity2 extends AppCompatActivity {
 
                 //RETROSPECTIVE
                 if(position == 1){
-                    Toast.makeText(MainActivity2.this, "Retrospective", Toast.LENGTH_SHORT).show();
-                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
-                    startActivity(profileIntent);
+                    String posVal = "1";
+                    Toast.makeText(MainActivity2.this, "" + posVal, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity2.this, YouTubeActivity.class);
+                    intent.putExtra("pos", posVal);
+                    startActivity(intent);
                 }
 
-                //PROFILE
+                //LET'S PLAY
                 if(position == 2){
+                    String posVal = "2";
                     Toast.makeText(MainActivity2.this, "Let's Play", Toast.LENGTH_SHORT).show();
-                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
-                    startActivity(profileIntent);
+                    Intent intent = new Intent(MainActivity2.this, YouTubeActivity.class);
+                    intent.putExtra("pos", posVal);
+                    startActivity(intent);
                 }
 
-                //PROFILE
                 if(position == 3){
+                    String posVal = "3";
                     Toast.makeText(MainActivity2.this, "Reviews", Toast.LENGTH_SHORT).show();
-                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
-                    startActivity(profileIntent);
+                    Intent intent = new Intent(MainActivity2.this, YouTubeActivity.class);
+                    intent.putExtra("pos", posVal);
+                    startActivity(intent);
                 }
 
-                //PROFILE
+                //FAVORITES
                 if(position == 4){
-                    Toast.makeText(MainActivity2.this, "Livestream", Toast.LENGTH_SHORT).show();
-                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
-                    startActivity(profileIntent);
+                    Toast.makeText(MainActivity2.this, "Favorites", Toast.LENGTH_SHORT).show();
+                    Intent favIntent = new Intent(MainActivity2.this, YouTubeActivity.class);
+                    favIntent.putExtra("position", 4);
+                    startActivity(favIntent);
                 }
             }
         });
