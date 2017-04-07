@@ -22,7 +22,7 @@
             android:layout_alignParentTop="true"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            tools:src="@drawable/ic_thumb_up" />
+           />
 
         <TextView
             android:id="@+id/video_title"

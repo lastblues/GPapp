@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.andyshin.gpapp.model.PlaylistVideos;
 import com.google.api.services.youtube.model.Video;
@@ -114,6 +115,8 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
             @Override
             public void onClick(View view) {
                 Intent embedYouTube = new Intent(holder.mContext, EmbedActivity.class);
+                embedYouTube.putExtra("link", video.getId());
+                String tempId = video.getId();
                 //holder.mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + video.getId())));
                 holder.mContext.startActivity(embedYouTube);
 

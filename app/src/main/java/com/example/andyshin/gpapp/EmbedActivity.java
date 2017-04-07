@@ -1,9 +1,12 @@
 package com.example.andyshin.gpapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,8 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -35,7 +41,6 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
     CheckBox checkBox;
     Button favorite;
     DataBaseHelper dbHelper;
-    //private YouTube
 
 
     @Override
@@ -68,6 +73,7 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
             //player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
             Intent intent = getIntent();
             String ytLink = intent.getStringExtra("link");
+
             player.cueVideo("" + ytLink);   //play https://www.youtube.com/playlist?list=PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?
             Toast.makeText(this, "WATCHING: " + ytLink, Toast.LENGTH_SHORT).show();
         }
@@ -131,5 +137,4 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
             Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

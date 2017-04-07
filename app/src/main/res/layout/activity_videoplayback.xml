@@ -105,7 +105,13 @@
                 android:layout_weight="1"
                 android:text="Go to Favorites" />
         </TableRow>
-
+        <!-- Side navigation drawer UI -->
+        <ListView
+            android:id="@+id/navList"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|start"
+            android:background="#ffeeeeee"/>
     </LinearLayout>
 
 </RelativeLayout>
