@@ -105,6 +105,7 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
                     Intent intent = getIntent();
                     String ytLink = intent.getStringExtra("link");
                     String newEntry = ytLink;
+
                     AddData(newEntry);
                     Toast.makeText(getApplicationContext(),"Added to Favorites", Toast.LENGTH_SHORT).show();
                 }
