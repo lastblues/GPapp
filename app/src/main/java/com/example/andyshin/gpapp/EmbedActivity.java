@@ -16,6 +16,9 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import static android.R.attr.value;
+import static android.app.SearchManager.ACTION_KEY;
+
 /**
  * Created by Andy Shin on 3/15/2017.
  */
@@ -26,10 +29,14 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
     private YouTubePlayerView youTubeView;
     //private YouTube
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videoplayback);
+
+        Bundle bundle = getIntent().getExtras();
+        int value = bundle.getInt(ACTION_KEY);
 
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
@@ -41,7 +48,10 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
         //player.cuePlaylist("PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?");   //play https://www.youtube.com/playlist?list=PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?
         if (!wasRestored) {
             //player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
-            player.cuePlaylist("PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01");   //play https://www.youtube.com/playlist?list=PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?
+            Intent intent = getIntent();
+            String ytLink = intent.getStringExtra("link");
+            player.cueVideo("" + ytLink);   //play https://www.youtube.com/playlist?list=PLUBonmwJMSaRLLcJSbnu22sKwV-agPc01?
+            Toast.makeText(this, "WATCHING: " + ytLink, Toast.LENGTH_SHORT).show();
         }
     }
 

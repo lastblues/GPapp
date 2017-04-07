@@ -60,18 +60,46 @@ public class MainActivity2 extends AppCompatActivity {
 
     //SIDE DRAWER CODE
     private void addDrawerItems(){
-        String[] itemArray = {"Profile", "YouTube", "Twitch", "Podcast", "Forum", "Settings", "Exit"};
+        String[] itemArray = {"Profile", "Retrospective", "Let's Play", "Reviews", "Livestream", "Settings", "Exit"};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, itemArray);
         mDrawerList.setAdapter(mAdapter);
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity2.this, "Tab clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity2.this, "Tab clicked", Toast.LENGTH_SHORT).show();
 
                 //PROFILE
                 if(position == 0){
-                    Toast.makeText(MainActivity2.this, "2", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity2.this, "Profile", Toast.LENGTH_SHORT).show();
+                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
+                    startActivity(profileIntent);
+                }
+
+                //RETROSPECTIVE
+                if(position == 1){
+                    Toast.makeText(MainActivity2.this, "Retrospective", Toast.LENGTH_SHORT).show();
+                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
+                    startActivity(profileIntent);
+                }
+
+                //PROFILE
+                if(position == 2){
+                    Toast.makeText(MainActivity2.this, "Let's Play", Toast.LENGTH_SHORT).show();
+                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
+                    startActivity(profileIntent);
+                }
+
+                //PROFILE
+                if(position == 3){
+                    Toast.makeText(MainActivity2.this, "Reviews", Toast.LENGTH_SHORT).show();
+                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
+                    startActivity(profileIntent);
+                }
+
+                //PROFILE
+                if(position == 4){
+                    Toast.makeText(MainActivity2.this, "Livestream", Toast.LENGTH_SHORT).show();
                     Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
                     startActivity(profileIntent);
                 }

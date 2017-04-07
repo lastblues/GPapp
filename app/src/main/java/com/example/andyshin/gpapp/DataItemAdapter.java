@@ -63,12 +63,16 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHo
                 String itemId = item.getItemId();
                 String linkId = item.getLink();
 
-                Intent intent = new Intent(mContext, EmbedActivity.class);
+                //START EMBEDACTIVITY
+                Intent embedYouTube = new Intent(mContext, EmbedActivity.class);
                 Intent playlistIntent = new Intent(mContext, YouTubeActivity.class);
                 Intent loadYoutube = new Intent(Intent.ACTION_VIEW, Uri.parse(linkId));
-                //mContext.startActivity(loadYoutube);
+
+                embedYouTube.putExtra(ITEM_KEY, item);
+                embedYouTube.putExtra("link",linkId);
+                mContext.startActivity(embedYouTube);
                 //intent.putExtra(ITEM_KEY, item);
-                mContext.startActivity(playlistIntent);
+                //mContext.startActivity(playlistIntent);
             }
         });
 
