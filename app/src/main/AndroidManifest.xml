@@ -23,6 +23,7 @@
         <activity android:name =".EmbedActivity"></activity>
         <activity android:name =".ProfileActivity"></activity>
         <activity android:name =".YouTubeActivity"></activity>
+        <activity android:name=".FavList"></activity>
 
     </application>
 
