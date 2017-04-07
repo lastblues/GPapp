@@ -20,6 +20,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "video_list";
     private static final String COL1 = "ID";
     private static final String COL2 = "Video";
+    private static final String COL3 = "Link";
 
 
     public DataBaseHelper(Context context) {
@@ -28,8 +29,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 +
-                " VIDEO_TEXT)";
+        String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 + " VIDEO_TEXT";
         db.execSQL(createTable);
     }
 
@@ -45,7 +45,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL2, item);
 
         Log.d(TAG, "addData: Adding " + item + " to " + TABLE_NAME);
-        long result = db.insert(TABLE_NAME, COL2, contentValues);
+        long result = db.insert(TABLE_NAME, null, contentValues);
 
         //if data was not inserted correctly it returns -1
         if (result == -1) {

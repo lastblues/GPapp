@@ -61,7 +61,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     //SIDE DRAWER CODE
     private void addDrawerItems(){
-        String[] itemArray = {"Profile", "Retrospective", "Let's Play", "Reviews", "Favorites", "Settings", "Exit"};
+        String[] itemArray = {"", "Retrospective", "Let's Play", "Reviews", "Favorites", "", ""};
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, itemArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -71,12 +71,6 @@ public class MainActivity2 extends AppCompatActivity {
                 //Toast.makeText(MainActivity2.this, "Tab clicked", Toast.LENGTH_SHORT).show();
 
 
-                //PROFILE
-                if(position == 0){
-                    Toast.makeText(MainActivity2.this, "Profile", Toast.LENGTH_SHORT).show();
-                    Intent profileIntent = new Intent(MainActivity2.this, ProfileActivity.class);
-                    startActivity(profileIntent);
-                }
 
                 //RETROSPECTIVE
                 if(position == 1){
@@ -96,6 +90,7 @@ public class MainActivity2 extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+                //Reviews
                 if(position == 3){
                     String posVal = "3";
                     Toast.makeText(MainActivity2.this, "Reviews", Toast.LENGTH_SHORT).show();
@@ -107,7 +102,7 @@ public class MainActivity2 extends AppCompatActivity {
                 //FAVORITES
                 if(position == 4){
                     Toast.makeText(MainActivity2.this, "Favorites", Toast.LENGTH_SHORT).show();
-                    Intent favIntent = new Intent(MainActivity2.this, YouTubeActivity.class);
+                    Intent favIntent = new Intent(MainActivity2.this, FavList.class);
                     favIntent.putExtra("position", 4);
                     startActivity(favIntent);
                 }

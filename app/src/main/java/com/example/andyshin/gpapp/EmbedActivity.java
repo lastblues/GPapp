@@ -104,9 +104,12 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
                 if (checkBox.isChecked()) {
                     Intent intent = getIntent();
                     String ytLink = intent.getStringExtra("link");
+                    String ytId = intent.getStringExtra("name");
                     String newEntry = ytLink;
+                    String nameEntry = ytId;
 
-                    AddData(newEntry);
+                    AddData(nameEntry);
+
                     Toast.makeText(getApplicationContext(),"Added to Favorites", Toast.LENGTH_SHORT).show();
                 }
             break;
@@ -119,8 +122,8 @@ public class EmbedActivity extends YouTubeBaseActivity implements YouTubePlayer.
             }
         }
 
-    public void AddData(String newEntry) {
-        boolean insertData = dbHelper.addData(newEntry);
+    public void AddData(String nameEntry) {
+        boolean insertData = dbHelper.addData(nameEntry);
 
         if (insertData == true) {
             Toast.makeText(getApplicationContext(), "Data Successfully Added", Toast.LENGTH_SHORT).show();

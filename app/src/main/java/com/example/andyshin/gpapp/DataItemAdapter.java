@@ -61,6 +61,7 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHo
                 Toast.makeText(mContext, "You selected " + item.getLink(),
                         Toast.LENGTH_SHORT).show();
                 String itemId = item.getItemId();
+                String nameId = item.getItemName();
                 String linkId = item.getLink();
 
                 //START EMBEDACTIVITY
@@ -70,6 +71,7 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHo
 
                 embedYouTube.putExtra(ITEM_KEY, item);
                 embedYouTube.putExtra("link",linkId);
+                embedYouTube.putExtra("name", nameId);
                 mContext.startActivity(embedYouTube);
                 //intent.putExtra(ITEM_KEY, item);
                 //mContext.startActivity(playlistIntent);
